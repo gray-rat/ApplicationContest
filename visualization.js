@@ -180,7 +180,8 @@ clickMakeTable.onclick = function () {
   const graphColor = ["orange", "blue", "green", "silver", "greenyellow", "gray", "olive", "gold", "navy", "khaki",
     "yellow", "pink", "red", "white", "cyan", "lime", "lightgray", "darkorange"];
 
-  //日付別の円グラフ
+  //TODO for文で重複をなくす
+  //1 of 3. 日付別の円グラフ
   Object.keys(sharePaymentDate).forEach(function (key, counter = 0) {
     let dataLabel = key + ":" + parseInt(sharePaymentDate[key] * 100) + "%";
     context.fillStyle = graphColor[counter];
@@ -202,7 +203,7 @@ clickMakeTable.onclick = function () {
     context.fillText("日付別集計", 40, 50);
   });
 
-  //項目の円グラフ
+  //2 of 3. 項目の円グラフ
   Object.keys(shareMainGunre).forEach(function (key, counter = 0) {
     let dataLabel = key + ":" + parseInt(shareMainGunre[key] * 100) + "%";
     context.fillStyle = graphColor[counter];
@@ -227,7 +228,7 @@ clickMakeTable.onclick = function () {
     context.fillText("項目別集計", 440, 50);
   });
 
-  //明細の円グラフ
+  //3 of 3. 明細の円グラフ
   Object.keys(shareSubGunre).forEach(function (key, counter = 0) {
     let dataLabel = key + ":" + parseInt(shareSubGunre[key] * 100) + "%";
     context.fillStyle = graphColor[counter];
