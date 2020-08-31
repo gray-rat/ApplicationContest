@@ -1,0 +1,41 @@
+body {
+  background-color: #77a1fa;
+  color: white;
+  width: 1300px;
+  margin-right: auto;
+  margin-left : auto;
+}
+
+button {
+  background-color: khaki;
+  width:220px;
+  text-align: left;
+  line-height: 20px;
+
+}
+
+p {
+  line-height: 15px;
+}
+
+.inputButton {
+  font-family:Arial, sans-serif;
+  background-color:blue;
+  color:white;
+  font-weight: bold;
+  width:400px;
+  height: 60px;
+  text-align: center;
+  margin:0px, 20px;
+
+}
+
+.form {
+  font-family:Arial, sans-serif;
+  background-color: white;
+  width:220px;
+  text-align: left;
+  border:solid 1px #ccc;
+  height: 30px;
+  margin:20px;
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="visualization.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>項目別支出可視化アプリ</h1>
+  <h2>説明</h2>
+  <h3>あなたの支出の固定費の割合を可視化しよう</h3>
+
+  <p>使い方：</p>
+  <p>①下の1.~ 5.の各項目に値を入力し「読み取り」ボタンクリック</p>
+  <p>②「読み取り」ボタンクリックしたら再度フォームに値を入力して「読み取り」をクリック</p>
+  <p>③上記の動作を繰り返す</p>
+  <p>④支出を全て入力したら「集計」ボタンをクリック</p>
+  <p>⑤「表の作成」をクリック</p>
+  <h3>サンプル</h3>
+  <p>以下のような画像が出力されます</p>
+  <img src="sample.png" alt="">
+
+  <h2>使ってみよう</h2>
+  <h3>I. 各フォームに値を入力して「①読み取り」ボタンをクリックしてください</h5>
+    <p>一度クリックし終えたら再度1~5のフォームに値を入力してください</p>
+    1.日付を入力<input type="date" name="" id="paymentDate" class="form"><br>
+    2.項目を選択<select name="mainGenre" id="mainGenre" class="form" onchange="createMenu(this.value)">
+      <option disabled selected>ジャンルを選択してください</option>
+      <option value="固定支出">固定支出</option>
+      <option value="変動支出">変動支出</option>
+      <option value="その他">その他</option>
+    </select><br>
+
+    3.明細を選択<select name="subGenre" id="subGenre" class="form" disabled>
+      <option disabled selected>詳細を選択してください</option>
+    </select><br>
+    4.メモ(任意)<input type="text" name="" id="memo" class="form"><br>
+    5.金額を入力<input type="number" name="" id="paymentAmount" class="form">円<br>
+    <button id="inputButton" class="inputButton">①.読み取り(一度クリックしたら再度1.~ 5.を繰り返す)</button><br>
+
+    <h3>II. 集計・表グラフの作成</h5>
+      <p>全ての項目を入力し終えたら「②.集計する(一度のみ実行)」、「③.表を作成する(一度のみ実行)」の順にクリックしてください</p>
+      <p>円グラフと入力した明細が表示されます</p>
+      <button id="clickMakepychart">②.集計する(一度のみ実行)</button><br>
+      <button id="makeTable">③.表を作成する(一度のみ実行)</button>
+
+      <h3>III. 結果の表示</h3>
+      <canvas id="piechart" width="1200" height="400">test</canvas><br>
+
+      <table id="table"></table>
+      <thead>
+        <tr>
+          <td>詳細</td>
+        </tr>
+      </thead><br>
+      </div>
+      <script type="text/javascript" src="visualization.js"></script>
+</body>
+
+</html>
