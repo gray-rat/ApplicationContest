@@ -10,7 +10,6 @@ const memo = document.getElementById('memo');
 const paymentAmount = document.getElementById('paymentAmount');
 
 let canvas = document.getElementById("piechart");
-let canvasClick = document.getElementById("testMakePiechart");
 let sumPaymentAll = 0;
 //集計用の配列
 let paymentDateMap = new Map();
