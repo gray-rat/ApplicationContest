@@ -11,7 +11,7 @@ const paymentAmount = document.getElementById('paymentAmount');
 
 let canvas = document.getElementById("piechart");
 let sumPaymentAll = 0;
-//集計用の配列
+//集計用の連想配列
 let paymentDateMap = new Map();
 let paymentMainGunre = new Map();
 let paymentSubGunre = new Map();
@@ -47,7 +47,7 @@ function createMenu(selectGenre) {
   });
 }
 
-//送信ボタンが押された時各入力値をコンソールに出力
+//送信ボタンが押された時各入力値の多次元配列を作成
 //TODO 送信ボタンを押すたびに初期化
 //TODO　データチェック（型,マイナス金額,欠損）
 clickButton.onclick = function () {
@@ -165,9 +165,9 @@ clickMakeTable.onclick = function () {
     //table bodyの最後に追加
     tblBody.appendChild(row);
   }
-  //<tbody>タグを<table>タグに追加 
+  //tbodyタグをtableタグに追加 
   tbl.appendChild(tblBody);
-  // appends <table> into <body>
+  //bodyタグ最下にtableを追加
   body.appendChild(tbl);
 
   //canvasによる3つの円グラフの作成
@@ -185,11 +185,11 @@ clickMakeTable.onclick = function () {
     let dataLabel = key + ":" + parseInt(sharePaymentDate[key] * 100) + "%";
     context.fillStyle = graphColor[counter];
     counter += 1;
-    //let graphTitle = toString(key + ":" + sharePaymentDate[key] + "%");
     //円の始点と円の終点
     angleStart = angleEnd;
     angleEnd += 360 * sharePaymentDate[key];
     context.beginPath();
+    //円グラフの始点を最上点とするため９０度分引く
     context.arc(100, 200, 100, (angleStart - 90) * Math.PI / 180, (angleEnd - 90) * Math.PI / 180, false);
     context.lineTo(100, 200);
     context.fill();
@@ -215,6 +215,7 @@ clickMakeTable.onclick = function () {
     console.log("カウンター" + counter);
 
     context.beginPath();
+    //円グラフの始点を最上点とするため９０度分引く
     context.arc(500, 200, 100, (angleStart - 90) * Math.PI / 180, (angleEnd - 90) * Math.PI / 180, false);
     context.lineTo(500, 200);
     context.fill();
@@ -236,6 +237,7 @@ clickMakeTable.onclick = function () {
     angleStart = angleEnd;
     angleEnd += 360 * shareSubGunre[key];
     context.beginPath();
+    //円グラフの始点を最上点とするため９０度分引く
     context.arc(900, 200, 100, (angleStart - 90) * Math.PI / 180, (angleEnd - 90) * Math.PI / 180, false);
     context.lineTo(900, 200);
     context.fill();
